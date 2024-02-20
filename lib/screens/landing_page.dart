@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:personal_website/utils/constants.dart';
+import 'package:personal_website/widgets/nav_bar.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -10,14 +12,20 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    w = MediaQuery.of(context).size.width;
+    h = MediaQuery.of(context).size.height;
+    return Scaffold(
       body: SafeArea(
-          child: ColoredBox(
-        color: Colors.white,
-        child: Center(
-          child: Text(
-            'PRANAV',
-            style: TextStyle(color: Colors.purpleAccent),
+          child: SingleChildScrollView(
+        child: Container(
+          child: const Column(
+            children: [
+              NavBar(),
+              Text(
+                'PRANAV',
+                style: TextStyle(color: Colors.purpleAccent),
+              ),
+            ],
           ),
         ),
       )),
