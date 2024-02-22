@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class NavBar extends StatefulWidget {
@@ -21,6 +22,8 @@ class _NavBarState extends State<NavBar> {
 Widget Function(BuildContext)? mobileNavBar() {
   return (BuildContext context) {
     return Container(
+      width: double.infinity,
+      color: Colors.black54,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       height: 70,
       child: const Row(
@@ -33,28 +36,32 @@ Widget Function(BuildContext)? mobileNavBar() {
 
 Widget Function(BuildContext)? desktopeNavBar() {
   return (BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      height: 70,
+    return SizedBox(
+      width: double.infinity,
+
+      //margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      height: 40,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Icon(Icons.draw_rounded),
+          Text(
+            '//MINE',
+            style: GoogleFonts.kanit(
+              textStyle: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.normal,
+              ),
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              navButton('text'),
-              navButton('text'),
-              navButton('text'),
-              navButton('text'),
+              navButton('Home'),
+              navButton('work'),
+              navButton('experience'),
+              navButton('contact'),
             ],
-          ),
-          SizedBox(
-            height: 45,
-            child: ElevatedButton(
-              onPressed: () {},
-              child: const Text('button'),
-            ),
           ),
         ],
       ),
@@ -77,6 +84,15 @@ Widget Function(BuildContext)? desktopeNavBar() {
 Widget navButton(String text) {
   return TextButton(
       onPressed: () {},
-      child: Text(text,
-          style: const TextStyle(color: Colors.black, fontSize: 18)));
-}// Container
+      child: Text(
+        text,
+        style: GoogleFonts.kanit(
+          textStyle: const TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            fontStyle: FontStyle.normal,
+          ),
+        ),
+      ));
+}
